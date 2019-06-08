@@ -3,6 +3,7 @@ Hi there! Welcome to AWS!
 routes:
 RESTful Routes:
 
+```
 Rails.application.routes.draw do 
 
 resources :superheroes, only: [:index, :show, :create, :update, :destroy]
@@ -15,12 +16,15 @@ end
     
     resources :abilities, only: [:show, :update, :create, :destroy]
 end
+```
 
-get 'silly', to: 'silly#fun' # Hash # to: => 'silly#fun' # 'controller#method' # silly_controller.rb # fun/action method
-post 'silly', to: 'silly#time'
-post "silly/:id", to: "silly#super"
+```get 'silly', to: 'silly#fun'``` # Hash # to: => 'silly#fun' # 'controller#method' # silly_controller.rb # fun/action method
 
-class SillyController < ApplicationController
+```post 'silly', to: 'silly#time'```
+
+```post "silly/:id", to: "silly#super"```
+
+```class SillyController < ApplicationController
     def fun
         render text: "Hello"
     end
@@ -40,6 +44,7 @@ class SillyController < ApplicationController
         render json: params
     end
 end
+```
 
 #params
 #1) Query string
@@ -51,20 +56,24 @@ GET localhost:3000/silly?message=hi
 results in...
 
 json:
+```
 {
     "message" : "hi",
     "controller": "silly", 
     "action": "fun"
 }
+```
 
 text: 
 
+```
 {
     "age": "50", 
     "message": "hi", 
     "controller": "silly",
     "action": "time"
 }
+```
 
 wildcard
 # silly/:id in routes
@@ -72,8 +81,10 @@ so silly/20/
 :id is 20
 wildcard is 20
 
+```
 { 
     "id": 20
 }
+```
 
 
