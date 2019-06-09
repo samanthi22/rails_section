@@ -90,3 +90,5 @@ wildcard is 20
 
 key - superhero[power], 200 # hash key value params
 
+Rails API is to get your controllers to convert model objects to JSON and then return JSON.
+
