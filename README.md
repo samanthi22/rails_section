@@ -88,3 +88,5 @@ wildcard is 20
 ```
 
 
+key - superhero[power], 200 # hash key value params
+
