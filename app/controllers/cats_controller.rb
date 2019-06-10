@@ -14,7 +14,15 @@ class CatsController < ApplicationController
         if cat.save
             render json: cat
         else 
-            render josn: cat.errors.full_message, status: :unprocessible_entity
+            render josn: cat.errors.full_message, status: :unprocessable_entity
         end
+    end
+    
+    def update
+        
+    end 
+    
+    def destroy
+        
     end
 end
