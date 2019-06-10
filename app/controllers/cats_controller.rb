@@ -9,6 +9,12 @@ class CatsController < ApplicationController
     end
     
     def create
-    
+        #{ "cat" : { "name": "Sally" }, "dog": {"name":"Bertrand"}}
+        cat = Cat.new(name: params[:cat][:name])
+        if cat.save
+            render json: cat
+        else 
+            render josn: cat.errors.full_message, status: :unprocessible_entity
+        end
     end
 end
