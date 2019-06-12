@@ -5,8 +5,8 @@ class Toy < ActiveRecord::Base
         "mouse"
         ]
     
-    validates :cat_id, :name, :type, presence: true
-    validates :type, inclusion: TYPES
+    validates :cat_id, :name, :ttype, presence: true
+    validates :ttype, inclusion: TYPES
     
     belongs_to :cat
 end
