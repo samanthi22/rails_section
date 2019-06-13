@@ -8,7 +8,11 @@ class ToysController < ApplicationController
     end
     
     def create
-        toy = Toy.new(params[:toy].permit(:cat, :name, :ttype))
+        #self.params method => returns an object of parameters
+        #HashWithIndiffentAccess < Hash
+        # whitelist
+        # strong parameters
+        toy = Toy.new(params[:toy].permit(:cat_id, :name, :ttype))
             #cat_id: params[:toy][:cat_id],
             #name: params[:toy][:name],
             #ttype: params[:toy][:ttype]
@@ -18,6 +22,7 @@ class ToysController < ApplicationController
             render json: toy
             
         else
+            # HTTP 422 Error
             render json: toy.errors.full_messages, status: unprocessable_entity
         end  
     end
@@ -30,7 +35,7 @@ class ToysController < ApplicationController
     
     def update
         toy = Toy.find(params[:id])
-        success = toy.update(params[:toy])
+        success = toy.update(params[:toy].permit(:name)) # ignores ttype, and string key/values 
         # will have all keys uploaded.
         # if no value for key ttype then it won't try to updated ttype
         # ForbiddenAttributesError
@@ -40,5 +45,11 @@ class ToysController < ApplicationController
             render json: toy.errors.full_messages, status: :unprocessable_entity
         end
     end
+    
+    private
+    
+        def toy_params
+            self.params[:toy].permit(:name)
+        end
     
 end
