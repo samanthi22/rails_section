@@ -28,4 +28,15 @@ class ToysController < ApplicationController
         render json: toy
     end
     
+    def update
+        toy = Toy.find(params[:id])
+        if toy.update(cat_id: params[:toy][:cat_id],
+            name: params[:toy][:name], 
+            ttype: params[:toy][:ttype])
+        render json: toy
+        else
+            render json: toy.errors.full_messages, status: :unprocessable_entity
+        end
+        
+    
 end
