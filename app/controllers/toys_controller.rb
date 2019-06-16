@@ -1,18 +1,27 @@
 class ToysController < ApplicationController
     def index
-        render json: Toy.all
+        # cats/:cat_id/toys
+        cat = Cat.find(params[:cat_id])
+        render json: cat.toys #Toy.all
     end
     
     def show
+        # /cats/:cat_id/toys/:id
+        # toys/:id
         render json: Toy.find[params[:id]]
     end
     
     def create
+        # POST /cats/:cat_id/toys
+        # POST /toys
         #self.params method => returns an object of parameters
         #HashWithIndiffentAccess < Hash
         # whitelist
         # strong parameters
-        toy = Toy.new(params[:toy].permit(:cat_id, :name, :ttype))
+        # toy = Toy.new(params[:toy].permit(:cat_id, :name, :ttype))
+        # because protected method
+        toy = Toy.new(self.toy_params)
+        # toy.cat_id = params[:cat_id]
             #cat_id: params[:toy][:cat_id],
             #name: params[:toy][:name],
             #ttype: params[:toy][:ttype]
@@ -45,11 +54,19 @@ class ToysController < ApplicationController
             render json: toy.errors.full_messages, status: :unprocessable_entity
         end
     end
-    
-    private
+
+# because it's a private method 
+# I can't say self.params
+# but I can say protected
+    protected
     
         def toy_params
-            self.params[:toy].permit(:name)
+            # removed 
+            # 
+        # toy.cat_id = params[:cat_id]
+        # from def create
+        # will need permit(:cat_id)
+            self.params[:toy].permit(:cat_id, :name, :ttype)
         end
     
 end

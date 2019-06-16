@@ -1,7 +1,8 @@
 class CatsController < ApplicationController
     def index
         cats = Cat.all
-        self.render json: cats
+        #self.render json: cats
+        self.render "index.html"
     end
     
     def show
