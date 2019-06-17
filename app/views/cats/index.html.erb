@@ -3,8 +3,14 @@
 <ul>
     <% @cats.each do |cat| %>
     <li>
-        <a href="/cats/<%= cat.id %>">
+        <!--<a href="/cats/<%= cat.id %>">-->
+        <a href="<%= cat_url(cat) %>">
             <%= cat.name %></li>
+            <!-- app.cat_url
+                 app.new_cat_url
+                 app.cat_url()
+                 Cat.first
+                 /cats/:id-->
         </a>
     <% end %>
 </ul>
