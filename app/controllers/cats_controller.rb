@@ -24,7 +24,8 @@ class CatsController < ApplicationController
             redirect_to cat_url(@cat)
             # render json: cat
         else 
-            render json: cat.errors.full_message, status: :unprocessable_entity
+            render :new
+            #render json: @cat.errors.full_messages, status: :unprocessable_entity
         end
     end
     
