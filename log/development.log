@@ -2007,3 +2007,121 @@ Can't verify CSRF token authenticity.
 Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 4.8ms)
 
 
+Started GET "/" for 76.14.61.22 at 2019-06-30 15:23:26 +0000
+Cannot render console from 76.14.61.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (2.8ms)
+Completed 200 OK in 14ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 76.14.61.22 at 2019-06-30 15:23:28 +0000
+Cannot render console from 76.14.61.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (2.8ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats/new" for 76.14.61.22 at 2019-06-30 15:23:37 +0000
+Cannot render console from 76.14.61.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatsController#new as HTML
+  Rendering cats/new.html.erb within layouts/application
+  Rendered cats/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 147ms (Views: 145.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/cats" for 76.14.61.22 at 2019-06-30 15:23:42 +0000
+Cannot render console from 76.14.61.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"Laura"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[36mCat Create (0.2ms)[0m  [1m[32mINSERT INTO "cats" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "{\"name\"=>\"Laura\"}"], ["created_at", "2019-06-30 15:23:42.550439"], ["updated_at", "2019-06-30 15:23:42.550439"]]
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = ?[0m  [["cat_id", 8]]
+  ↳ app/views/cats/show.html.erb:9
+  Rendered cats/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 34ms (Views: 17.0ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/cats" for 76.14.61.22 at 2019-06-30 15:23:53 +0000
+Cannot render console from 76.14.61.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"Susan"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[36mCat Create (0.2ms)[0m  [1m[32mINSERT INTO "cats" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "{\"name\"=>\"Susan\"}"], ["created_at", "2019-06-30 15:23:53.691828"], ["updated_at", "2019-06-30 15:23:53.691828"]]
+  ↳ app/controllers/cats_controller.rb:20
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cats_controller.rb:20
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = ?[0m  [["cat_id", 9]]
+  ↳ app/views/cats/show.html.erb:9
+  Rendered cats/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 21ms (Views: 11.3ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/cats" for 76.14.61.22 at 2019-06-30 15:25:15 +0000
+Cannot render console from 76.14.61.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/4" for 76.14.61.22 at 2019-06-30 15:25:27 +0000
+Cannot render console from 76.14.61.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:11
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = ?[0m  [["cat_id", 4]]
+  ↳ app/views/cats/show.html.erb:9
+  Rendered cats/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cats" for 76.14.61.22 at 2019-06-30 15:25:29 +0000
+Cannot render console from 76.14.61.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cats/1" for 76.14.61.22 at 2019-06-30 15:25:30 +0000
+Cannot render console from 76.14.61.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:11
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = ?[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:9
+  Rendered cats/show.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cats" for 76.14.61.22 at 2019-06-30 15:25:32 +0000
+Cannot render console from 76.14.61.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.1ms)
+
+
