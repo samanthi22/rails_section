@@ -24,12 +24,24 @@ class CatsController < ApplicationController
         end
     end
     
+    def new
+       # show a form to create a new object
+       # /cats/new
+       render :new
+    end
+    # 
+    
     def update
         cat = Cat.find(params[:id])
         # .permit()) 
         # attributes not on this list will be ignored
         cat.update(params[:cat].permit(:name))
     end 
+    
+    #def edit
+        # /cats/:id/edit
+        # show a form to edit
+    #end 
     
     def destroy
         #if !current_cat_user.admin
