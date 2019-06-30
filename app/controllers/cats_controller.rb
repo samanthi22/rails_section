@@ -52,5 +52,11 @@ class CatsController < ApplicationController
        cat = Cat.find(params[:id])
        cat.destroy
        redirect_to cats_url
+       
+       # 1. GET /cats
+       # 2. click delete button
+       # 3. sends POST _method="DELETE"
+       # 4. Deletes cat then redirects 
+       # 5. Client gets /cats/ again
     end
 end
