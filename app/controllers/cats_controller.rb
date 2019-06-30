@@ -15,10 +15,13 @@ class CatsController < ApplicationController
     
     def create
         #{ "cat" : { "name": "Sally" }, "dog": {"name":"Bertrand"}}
-        @cat = Cat.new(name: params[:cat].permit(:name))
+        # @cat - instance variable
+        @cat = Cat.new(params[:cat].permit(:name))
         #cat.admin = false
         if @cat.save
-            render :show
+            #render :show
+            # /cats/{#id}
+            redirect_to cat_url(@cat)
             # render json: cat
         else 
             render json: cat.errors.full_message, status: :unprocessable_entity
@@ -45,8 +48,9 @@ class CatsController < ApplicationController
     #end 
     
     def destroy
-        #if !current_cat_user.admin
-         #   raise "error"
-        #end
+        # DELETE /cats/:id
+       cat = Cat.find(params[:id])
+       cat.destroy
+       redirect_to cats_url
     end
 end
