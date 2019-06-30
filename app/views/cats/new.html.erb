@@ -1,8 +1,13 @@
 <h1> Build a new cat!</h1>
 
 <form method="POST" action="/cats">
-    <input type="text" name="cat[name]">
-    
+    <label for="cat_name"> Name </label>
+    <input type="text" name="cat[name]" id="cat_name">
+    <br>
+    <label for="skill_name"> Skill </label>
+    <input type="text" name="cat[skill]" id="skill_name">
+    <br>
+    <br>
     <input type="submit" value="Create Cat!">
     
 </form>
