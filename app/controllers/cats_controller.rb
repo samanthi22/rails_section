@@ -16,7 +16,7 @@ class CatsController < ApplicationController
     def create
         #{ "cat" : { "name": "Sally" }, "dog": {"name":"Bertrand"}}
         # @cat - instance variable
-        @cat = Cat.new(params[:cat].permit(:name))
+        @cat = Cat.new(params[:cat].permit(:name, :skill))
         #cat.admin = false
         if @cat.save
             #render :show
@@ -25,6 +25,7 @@ class CatsController < ApplicationController
             # render json: cat
         else 
             render :new
+            # cannot redirect_to
             #render json: @cat.errors.full_messages, status: :unprocessable_entity
         end
     end
@@ -32,6 +33,7 @@ class CatsController < ApplicationController
     def new
        # show a form to create a new object
        # /cats/new
+       @cat = Cat.new
        render :new
     end
     # 

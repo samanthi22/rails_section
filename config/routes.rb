@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     # /cats/2/toys
     # list all toys for cats/1/toys
     # also never nest things 2 levels deep
-    resources :toys, only: [:index]
+    resources :toys, only: [:index, :new]
     # update instead of nesting the :create here
   end
   # toys/:id

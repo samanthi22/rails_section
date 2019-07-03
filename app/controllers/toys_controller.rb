@@ -54,6 +54,12 @@ class ToysController < ApplicationController
             render json: toy.errors.full_messages, status: :unprocessable_entity
         end
     end
+    
+    def new
+        @cat = Cat.find(params[:cat_id])
+        @toy = Toy.new
+        render :new
+    end
 
 # because it's a private method 
 # I can't say self.params
