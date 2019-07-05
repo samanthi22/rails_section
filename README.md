@@ -111,3 +111,12 @@ or ..
 </option>
 <% end %>
 ```
+
+how to know whether updating cat
+``` 
+<% action_url = @cat.persisted? %>
+```
+has the cat been updated to the database or not 
+```
+@cat.persisted? ? "PATCH" : "POST"
+```
