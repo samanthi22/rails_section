@@ -7,9 +7,9 @@
     <br>
     <label for="toy_ttype">Type</label>
     <select name="toy[ttype]" id="toy_ttype">
-        <option value="string">String</option>
-        <option value="yarnball">Ball o' Yarn</option>
-        <option value="mouse">Fake Mouse</option>
+        <option value="string" <% if @toy.ttype == 'string' %> selected <% end %>>String</option>
+        <option value="yarnball" <% if @toy.ttype == 'yarnball' %> selected <% end %>>Ball o' Yarn</option>
+        <option value="mouse" <% if @toy.ttype == 'mouse' %> selected <% end %>>Fake Mouse</option>
     </select>
     
     <input type="submit" value="Create Toy!">

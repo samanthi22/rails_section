@@ -92,3 +92,11 @@ key - superhero[power], 200 # hash key value params
 
 Rails API is to get your controllers to convert model objects to JSON and then return JSON.
 
+select tag for cat toys type:
+
+```
+<select name="toy[ttype]" id="toy_ttype">
+<option value="yarnball"
+<%= "selected" if @toy.ttype == "yarnball" %>> Ball o'Yarn </option>
+</select>
+```
