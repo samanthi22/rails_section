@@ -16,7 +16,7 @@ class CatsController < ApplicationController
     def create
         #{ "cat" : { "name": "Sally" }, "dog": {"name":"Bertrand"}}
         # @cat - instance variable
-        @cat = Cat.new(params[:cat].permit(:name, :skill))
+        @cat = Cat.new(cat_params)
         #cat.admin = false
         if @cat.save
             #render :show
@@ -39,16 +39,22 @@ class CatsController < ApplicationController
     # 
     
     def update
-        cat = Cat.find(params[:id])
+        @cat = Cat.find(params[:id])
         # .permit()) 
         # attributes not on this list will be ignored
-        cat.update(params[:cat].permit(:name))
+        if @cat.update(cat_params)
+        redirect_to cat_url(@cat)
+        else
+            render :edit
+        end
     end 
     
-    #def edit
+    def edit
         # /cats/:id/edit
         # show a form to edit
-    #end 
+        @cat = Cat.find(params[:id])
+        render :edit
+    end 
     
     def destroy
         # DELETE /cats/:id
@@ -61,5 +67,10 @@ class CatsController < ApplicationController
        # 3. sends POST _method="DELETE"
        # 4. Deletes cat then redirects 
        # 5. Client gets /cats/ again
+    end
+    
+    private
+    def cat_params
+       params[:cat].permit(:name, :skill) 
     end
 end

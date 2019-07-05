@@ -11,6 +11,11 @@ class ToysController < ApplicationController
         render json: Toy.find[params[:id]]
     end
     
+    #def edit
+        # form partials
+        
+    #end 
+    
     def create
         # POST /cats/:cat_id/toys
         # POST /toys

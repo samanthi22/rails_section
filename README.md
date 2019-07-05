@@ -100,3 +100,14 @@ select tag for cat toys type:
 <%= "selected" if @toy.ttype == "yarnball" %>> Ball o'Yarn </option>
 </select>
 ```
+
+
+or ..
+```
+<% Toy:TYPES.each do |type| %>
+<option value="<%= type %>"
+<%= "selected" if @toy.ttype == type %>>
+<%= type.upcase %>
+</option>
+<% end %>
+```
