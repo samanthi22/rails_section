@@ -1,14 +1,14 @@
 <h1> <%= @cat.name %>'s New Toy</h1>
 
 <form action="/toys" method="POST">
-    <input type="hidden" 
+    <input type="hidden" name="toy[cat_id]" value="<%= @cat.id %>">
     <label for="toy_name"> Name </label>
     <input type="text" name="toy[name]" id="toy_name" value="<%= @toy.name %>">
     <br>
     <label for="toy_ttype">Type</label>
     <select name="toy[ttype]" id="toy_ttype">
         <option value="string">String</option>
-        <option value="yarnball">Ball o' Yarn/option>
+        <option value="yarnball">Ball o' Yarn</option>
         <option value="mouse">Fake Mouse</option>
     </select>
     

@@ -20,19 +20,23 @@ class ToysController < ApplicationController
         # strong parameters
         # toy = Toy.new(params[:toy].permit(:cat_id, :name, :ttype))
         # because protected method
-        toy = Toy.new(self.toy_params)
+        @toy = Toy.new(self.toy_params)
+        @cat = @toy.cat
+        # can also say Cat.find(params[:toy][:cat_id]) #=> @toy.cat
         # toy.cat_id = params[:cat_id]
             #cat_id: params[:toy][:cat_id],
             #name: params[:toy][:name],
             #ttype: params[:toy][:ttype]
             #)
             
-        if toy.save
-            render json: toy
+        if @toy.save
+            redirect_to cat_url(@cat)
             
         else
+            render :new
+            #raise "Hell"
             # HTTP 422 Error
-            render json: toy.errors.full_messages, status: unprocessable_entity
+            #render json: toy.errors.full_messages, status: unprocessable_entity
         end  
     end
     
